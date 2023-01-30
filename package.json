@@ -4,7 +4,7 @@
   "description": "service worker for world enterprise event signal",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon node index.js"
   },
   "keywords": [
     "world",
@@ -15,11 +15,8 @@
   "author": "Puffer",
   "license": "ISC",
   "dependencies": {
-    "@moralisweb3/common-evm-utils": "^2.12.0",
     "dotenv-safe": "^8.2.0",
     "ethers": "^5.7.2",
-    "moralis": "^2.12.0",
-    "nodemon": "^2.0.20",
-    "web3": "^1.8.1"
+    "nodemon": "^2.0.20"
   }
 }
