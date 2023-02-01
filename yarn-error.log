@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add loadash.sample
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add queryString
 
 PATH: 
-  C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Yarn\bin\;C:\Users\Puffer\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\Git\cmd;D:\__PufferWorkspace\__Freelancer\Mohammad\flutter_sdk\bin;C:\Program Files\TortoiseGit\bin;C:\Program Files (x86)\gnupg\bin;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\Users\Puffer\AppData\Local\Programs\Python\Python310;C:\Users\Puffer\AppData\Local\Programs\Python\Python310\Scripts;C:\Program Files\GitHub CLI\;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\Users\Puffer\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\nodejs\;C:\Users\Puffer\AppData\Local\Microsoft\WindowsApps;C:\Users\Puffer\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Puffer\AppData\Local\Yarn\bin;C:\Users\Puffer\AppData\Local\GitHubDesktop\bin;C:\Users\Puffer\AppData\Local\Android\Sdk\platform-tools;D:\__PufferWorkspace\__Freelancer\Mohammad\flutter_sdk\bin;C:\Users\Puffer\AppData\Local\Android\Sdk\emulator;C:\Users\Puffer\.dotnet\tools;C:\Program Files\MongoDB\Server\6.0\bin;C:\Users\Puffer\AppData\Local\Programs\Python\Python310\Scripts;C:\Program Files\Azure Data Studio\bin;D:\__PufferWorkspace;C:\Users\Puffer\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\Puffer\AppData\Roaming\npm
+  C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Yarn\bin\;C:\Users\Puffer\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\Git\cmd;D:\__PufferWorkspace\__Freelancer\Mohammad\flutter_sdk\bin;C:\Program Files\TortoiseGit\bin;C:\Program Files (x86)\gnupg\bin;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\Users\Puffer\AppData\Local\Programs\Python\Python310;C:\Users\Puffer\AppData\Local\Programs\Python\Python310\Scripts;C:\Program Files\GitHub CLI\;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\Users\Puffer\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\nodejs\;C:\Program Files\PuTTY\;C:\Users\Puffer\AppData\Local\Microsoft\WindowsApps;C:\Users\Puffer\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Puffer\AppData\Local\Yarn\bin;C:\Users\Puffer\AppData\Local\GitHubDesktop\bin;C:\Users\Puffer\AppData\Local\Android\Sdk\platform-tools;D:\__PufferWorkspace\__Freelancer\Mohammad\flutter_sdk\bin;C:\Users\Puffer\AppData\Local\Android\Sdk\emulator;C:\Users\Puffer\.dotnet\tools;C:\Program Files\MongoDB\Server\6.0\bin;C:\Users\Puffer\AppData\Local\Programs\Python\Python310\Scripts;C:\Program Files\Azure Data Studio\bin;D:\__PufferWorkspace;C:\Users\Puffer\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\Puffer\AppData\Roaming\npm
 
 Yarn version: 
   1.22.18
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/loadash.sample: Not found
+  Error: https://registry.yarnpkg.com/queryString: Not found
       at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66138:18)
       at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140883:22)
       at Request.emit (node:events:513:28)
@@ -33,7 +33,7 @@ npm manifest:
     "description": "service worker for world enterprise event signal",
     "main": "index.js",
     "scripts": {
-      "start": "node index.js"
+      "start": "nodemon node index.js"
     },
     "keywords": [
       "world",
@@ -44,6 +44,7 @@ npm manifest:
     "author": "Puffer",
     "license": "ISC",
     "dependencies": {
+      "axios": "^1.3.0",
       "dotenv-safe": "^8.2.0",
       "ethers": "^5.7.2",
       "nodemon": "^2.0.20"
@@ -418,6 +419,20 @@ Lockfile:
       normalize-path "^3.0.0"
       picomatch "^2.0.4"
   
+  asynckit@^0.4.0:
+    version "0.4.0"
+    resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
+    integrity sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==
+  
+  axios@^1.3.0:
+    version "1.3.0"
+    resolved "https://registry.yarnpkg.com/axios/-/axios-1.3.0.tgz#4cb0d72213989dec08d4b10129e42063bcb3dc78"
+    integrity sha512-oCye5nHhTypzkdLIvF9SaHfr8UAquqCn1KY3j8vsrjeol8yohAdGxIpRPbF1bOLsx33HOAatdfMX1yzsj2cHwg==
+    dependencies:
+      follow-redirects "^1.15.0"
+      form-data "^4.0.0"
+      proxy-from-env "^1.1.0"
+  
   balanced-match@^1.0.0:
     version "1.0.2"
     resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
@@ -478,6 +493,13 @@ Lockfile:
     optionalDependencies:
       fsevents "~2.3.2"
   
+  combined-stream@^1.0.8:
+    version "1.0.8"
+    resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.8.tgz#c3d45a8b34fd730631a110a8a2520682b31d5a7f"
+    integrity sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==
+    dependencies:
+      delayed-stream "~1.0.0"
+  
   concat-map@0.0.1:
     version "0.0.1"
     resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
@@ -489,6 +511,11 @@ Lockfile:
     integrity sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==
     dependencies:
       ms "^2.1.1"
+  
+  delayed-stream@~1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
+    integrity sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==
   
   dotenv-safe@^8.2.0:
     version "8.2.0"
@@ -557,6 +584,20 @@ Lockfile:
     integrity sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==
     dependencies:
       to-regex-range "^5.0.1"
+  
+  follow-redirects@^1.15.0:
+    version "1.15.2"
+    resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.2.tgz#b460864144ba63f2681096f274c4e57026da2c13"
+    integrity sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==
+  
+  form-data@^4.0.0:
+    version "4.0.0"
+    resolved "https://registry.yarnpkg.com/form-data/-/form-data-4.0.0.tgz#93919daeaf361ee529584b9b31664dc12c9fa452"
+    integrity sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==
+    dependencies:
+      asynckit "^0.4.0"
+      combined-stream "^1.0.8"
+      mime-types "^2.1.12"
   
   fsevents@~2.3.2:
     version "2.3.2"
@@ -631,6 +672,18 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/js-sha3/-/js-sha3-0.8.0.tgz#b9b7a5da73afad7dedd0f8c463954cbde6818840"
     integrity sha512-gF1cRrHhIzNfToc802P800N8PpXS+evLLXfsVpowqmAFR9uwbi89WvXg2QspOmXL8QL86J4T1EpFu+yUkwJY3Q==
   
+  mime-db@1.52.0:
+    version "1.52.0"
+    resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.52.0.tgz#bbabcdc02859f4987301c856e3387ce5ec43bf70"
+    integrity sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==
+  
+  mime-types@^2.1.12:
+    version "2.1.35"
+    resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.35.tgz#381a871b62a734450660ae3deee44813f70d959a"
+    integrity sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==
+    dependencies:
+      mime-db "1.52.0"
+  
   minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/minimalistic-assert/-/minimalistic-assert-1.0.1.tgz#2e194de044626d4a10e7f7fbc00ce73e83e4d5c7"
@@ -685,6 +738,11 @@ Lockfile:
     version "2.3.1"
     resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
     integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
+  
+  proxy-from-env@^1.1.0:
+    version "1.1.0"
+    resolved "https://registry.yarnpkg.com/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
+    integrity sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==
   
   pstree.remy@^1.1.8:
     version "1.1.8"
