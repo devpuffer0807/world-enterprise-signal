@@ -2,7 +2,7 @@ const ethers = require("ethers");
 const FactoryABI = require("../abi/FactoryABI.json");
 const { getProvider } = require("../utils");
 const enterpriseWorker = require("./enterprise");
-const { createWorldEnterpriseAPI } = require("../api");
+const createWorldEnterpriseAPI = require("../api/createWorldEnterprise");
 
 /**
  * @dev create service worker for factory contract
@@ -15,26 +15,11 @@ module.exports = async (chainId, contractAddress) => {
       FactoryABI,
       provider
     );
-
-    const enterpriseCounter = await factoryContract.index();
-    if (parseInt(enterpriseCounter) > 0) {
-      for (var i = 0; i < enterpriseCounter; i++) {
-        const enterpriseAddress = await factoryContract.worldEnterprises(i);
-        enterpriseWorker(provider, enterpriseAddress);
-      }
-    }
-
+    let enterpriseCounter = await factoryContract.index();
+    enterpriseCounter = Number(enterpriseCounter);
     factoryContract.on(
       "CreateWorldEnterprise",
       async (users, shares, name, symbol, enterprise) => {
-        console.log(
-          "===CreateWorldEnterprise===",
-          users,
-          shares,
-          name,
-          symbol,
-          enterprise
-        );
         try {
           enterpriseWorker(provider, enterprise);
           await createWorldEnterpriseAPI(
@@ -49,7 +34,16 @@ module.exports = async (chainId, contractAddress) => {
         }
       }
     );
+
+    if (parseInt(enterpriseCounter) > 0) {
+      for (var i = 0; i < enterpriseCounter; i++) {
+        const enterpriseAddress = await factoryContract.worldEnterprises(i);
+        enterpriseWorker(provider, enterpriseAddress);
+      }
+    }
   } catch (e) {
     console.error("===Factory worker error===", e);
   }
+  console.log("======= Started Event Listener ========");
+  return true;
 };
