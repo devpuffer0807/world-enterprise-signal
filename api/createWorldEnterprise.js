@@ -15,6 +15,9 @@ module.exports = async (users, shares_, name, symbol, enterprise) => {
       }
     } catch (e) {}
 
+    users = users.toString();
+    shares = shares.toString();
+
     const data = {
       users,
       shares,
@@ -31,7 +34,6 @@ module.exports = async (users, shares_, name, symbol, enterprise) => {
       enterprise
     );
     const queryStr = queryString.stringify(data);
-
     await axios({
       method: "POST",
       url: `${EVENT_SIGNAL_URL}/factory?${queryStr}`,
