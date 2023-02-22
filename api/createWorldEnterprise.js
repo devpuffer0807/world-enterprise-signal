@@ -53,11 +53,6 @@ module.exports = async (
 
     const queryStr = queryString.stringify(data);
 
-    console.log(
-      "CreateWorldEnterprise",
-      `${EVENT_SIGNAL_URL}/factory?${queryStr}`
-    );
-
     await axios({
       method: "POST",
       url: `${EVENT_SIGNAL_URL}/factory?${queryStr}`,
