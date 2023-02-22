@@ -24,7 +24,6 @@ module.exports = async (
 
     users = users.toString();
     shares = shares.toString();
-    enterpriseInfo = enterpriseInfo.toString();
 
     const logoImg = enterpriseInfo[0];
     const enterpriseName = enterpriseInfo[1];
