@@ -19,7 +19,7 @@ module.exports = async (chainId, contractAddress) => {
     enterpriseCounter = Number(enterpriseCounter);
     factoryContract.on(
       "CreateWorldEnterprise",
-      async (users, shares, name, symbol, enterprise) => {
+      async (users, shares, name, symbol, enterprise, enterpriseInfo) => {
         try {
           enterpriseWorker(provider, enterprise);
           await createWorldEnterpriseAPI(
@@ -27,7 +27,8 @@ module.exports = async (chainId, contractAddress) => {
             shares,
             name,
             symbol,
-            enterprise
+            enterprise,
+            enterpriseInfo
           );
         } catch (e) {
           console.error("===Enterprise worker error===", e);
