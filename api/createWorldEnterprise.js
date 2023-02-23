@@ -1,6 +1,7 @@
 const axios = require("axios");
 const queryString = require("querystring");
 const { EVENT_SIGNAL_URL } = require("../config");
+const { processUser, saveUser } = require("./weUser");
 
 module.exports = async (
   users,
@@ -21,6 +22,12 @@ module.exports = async (
         }
       }
     } catch (e) {}
+
+    for (var i = 0; i < users.length; i++) {
+      const userInfo = await processUser(users[i], shares[i], enterprise);
+      console.log("======userinfo====", userInfo);
+      await saveUser(users[i], userInfo);
+    }
 
     users = users.toString();
     shares = shares.toString();
