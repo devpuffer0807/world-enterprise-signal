@@ -15,14 +15,11 @@ module.exports.processUser = async (address, shareAmount, enterprise) => {
       });
 
     if (res.data?.exists) {
+      userInfo = { ...res.data };
       userInfo["enterprises"] = {
         ...res.data?.enterprises,
         ..._enterpriseObj,
       };
-
-      userInfo["name"] = res.data?.name;
-      userInfo["username"] = res.data?.username;
-      userInfo["image_url"] = res.data?.image_url;
     } else {
       userInfo["enterprises"] = _enterpriseObj;
     }
