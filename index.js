@@ -11,7 +11,11 @@ var app = express();
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors());
+var corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200,
+}
+app.use(cors(corsOptions));
 app.use("/", router);
 
 app.listen(80, () => {
