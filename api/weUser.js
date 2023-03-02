@@ -1,10 +1,13 @@
 const axios = require("axios");
 const { EVENT_WE_USER_URL } = require("../config");
 
-module.exports.processUser = async (address, shareAmount, enterprise) => {
+module.exports.processUser = async (address, shareAmount, ipfs, enterprise) => {
   let userInfo = {};
   let _enterpriseObj = {};
-  _enterpriseObj[enterprise] = parseFloat(shareAmount);
+  _enterpriseObj[enterprise] = {
+    amount: parseFloat(shareAmount),
+    ipfs: ipfs,
+  };
 
   try {
     const res = await axios
@@ -16,10 +19,10 @@ module.exports.processUser = async (address, shareAmount, enterprise) => {
 
     if (res.data?.exists) {
       userInfo = { ...res.data };
-      userInfo["enterprises"] = {
+      userInfo["enterprises"] = JSON.stringify({
         ...res.data?.enterprises,
         ..._enterpriseObj,
-      };
+      });
     } else {
       userInfo["enterprises"] = _enterpriseObj;
     }

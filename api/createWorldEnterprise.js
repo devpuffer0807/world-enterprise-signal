@@ -23,15 +23,6 @@ module.exports = async (
       }
     } catch (e) {}
 
-    for (var i = 0; i < users.length; i++) {
-      const userInfo = await processUser(users[i], shares[i], enterprise);
-      console.log("======userinfo====", userInfo);
-      await saveUser(users[i], userInfo);
-    }
-
-    users = users.toString();
-    shares = shares.toString();
-
     const logoImg = enterpriseInfo[0];
     const enterpriseName = enterpriseInfo[1];
     const description = enterpriseInfo[2];
@@ -39,6 +30,15 @@ module.exports = async (
     const companyType = enterpriseInfo[4];
     const admin = enterpriseInfo[5];
     const ipfs = enterpriseInfo[6];
+
+    for (var i = 0; i < users.length; i++) {
+      const userInfo = await processUser(users[i], shares[i], ipfs, enterprise);
+      console.log("======userinfo====", userInfo);
+      await saveUser(users[i], userInfo);
+    }
+
+    users = users.toString();
+    shares = shares.toString();
 
     const data = {
       users,
