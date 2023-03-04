@@ -36,12 +36,12 @@ module.exports = async (chainId, contractAddress) => {
       }
     );
 
-    // if (parseInt(enterpriseCounter) > 0) {
-    //   for (var i = 0; i < enterpriseCounter; i++) {
-    //     const enterpriseAddress = await factoryContract.worldEnterprises(i);
-    //     enterpriseWorker(provider, enterpriseAddress);
-    //   }
-    // }
+    if (parseInt(enterpriseCounter) > 0) {
+      for (var i = 0; i < enterpriseCounter; i++) {
+        const enterpriseAddress = await factoryContract.worldEnterprises(i);
+        enterpriseWorker(provider, enterpriseAddress);
+      }
+    }
   } catch (e) {
     console.error("===Factory worker error===", e);
   }

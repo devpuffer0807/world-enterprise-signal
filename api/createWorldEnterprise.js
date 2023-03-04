@@ -32,7 +32,7 @@ module.exports = async (
     const ipfs = enterpriseInfo[6];
 
     for (var i = 0; i < users.length; i++) {
-      const userInfo = await processUser(users[i], shares[i], ipfs, enterprise);
+      const userInfo = await processUser(users[i], shares[i], logoImg, enterpriseName, ipfs, enterprise);
       console.log("======userinfo====", userInfo);
       await saveUser(users[i], userInfo);
     }

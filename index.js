@@ -1,23 +1,24 @@
 require("dotenv").config();
-var express = require("express");
-var bodyParser = require('body-parser');
-var router = require("./router");
-var cors = require('cors');
 const factoryWorker = require("./worker/factory");
 
 factoryWorker(80001, process.env.MUMBAI_FACTORY_ADDRESS);
 
-var app = express();
+// var express = require("express");
+// var bodyParser = require('body-parser');
+// var router = require("./router");
+// var cors = require('cors');
 
-app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-var corsOptions = {
-  origin: '*',
-  optionsSuccessStatus: 200,
-}
-app.use(cors(corsOptions));
-app.use("/", router);
+// var app = express();
 
-app.listen(80, () => {
-  console.log("Express server started");
-});
+// app.use(express.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// var corsOptions = {
+//   origin: '*',
+//   optionsSuccessStatus: 200,
+// }
+// app.use(cors(corsOptions));
+// app.use("/", router);
+
+// app.listen(80, () => {
+//   console.log("Express server started");
+// });
