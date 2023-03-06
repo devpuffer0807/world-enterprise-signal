@@ -28,8 +28,12 @@ module.exports.processUser = async (
 
     if (res.data?.exists) {
       userInfo = { ...res.data };
+      let _enterprises;
+      try{
+        _enterprises = JSON.parse(res.data?.enterprises)
+      }catch(e){}
       userInfo["enterprises"] = JSON.stringify({
-        ...res.data?.enterprises,
+        ..._enterprises,
         ..._enterpriseObj,
       });
     } else {
