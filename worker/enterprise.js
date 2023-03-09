@@ -26,6 +26,7 @@ module.exports = async (provider, address) => {
       (proposalIndex, proposer, amount, price, startTime, endTime) => {
         console.log(
           "=====JoinWorldEnterprise====",
+          address,
           proposalIndex,
           proposer,
           amount,
@@ -34,6 +35,7 @@ module.exports = async (provider, address) => {
           endTime
         );
         joinWorldEnterpriseAPI(
+          address,
           proposalIndex,
           proposer,
           amount,

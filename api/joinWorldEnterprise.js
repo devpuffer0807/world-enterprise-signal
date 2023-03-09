@@ -3,6 +3,7 @@ const queryString = require("querystring");
 const { EVENT_SIGNAL_URL } = require("../config");
 
 module.exports = async (
+  enterpriseAddress,
   proposalIndex,
   proposer,
   amount,
@@ -17,6 +18,7 @@ module.exports = async (
     endTime = Number(endTime);
 
     const data = {
+      enterpriseAddress,
       proposalIndex,
       proposer,
       amount,
@@ -26,6 +28,7 @@ module.exports = async (
     };
     console.log(
       "JoinWorldEnterprise",
+      enterpriseAddress,
       proposalIndex,
       proposer,
       amount,
