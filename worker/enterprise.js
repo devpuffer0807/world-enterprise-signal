@@ -23,12 +23,13 @@ module.exports = async (provider, address) => {
 
     enterpriseContract.on(
       "JoinWorldEnterprise",
-      (proposalIndex, proposer, amount, startTime, endTime) => {
+      (proposalIndex, proposer, amount, price, startTime, endTime) => {
         console.log(
           "=====JoinWorldEnterprise====",
           proposalIndex,
           proposer,
           amount,
+          price,
           startTime,
           endTime
         );
@@ -36,6 +37,7 @@ module.exports = async (provider, address) => {
           proposalIndex,
           proposer,
           amount,
+          price,
           startTime,
           endTime
         );

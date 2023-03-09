@@ -6,6 +6,7 @@ module.exports = async (
   proposalIndex,
   proposer,
   amount,
+  price,
   startTime,
   endTime
 ) => {
@@ -19,6 +20,7 @@ module.exports = async (
       proposalIndex,
       proposer,
       amount,
+      price,
       startTime,
       endTime,
     };
@@ -27,6 +29,7 @@ module.exports = async (
       proposalIndex,
       proposer,
       amount,
+      price,
       startTime,
       endTime
     );
