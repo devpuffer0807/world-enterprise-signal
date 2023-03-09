@@ -50,6 +50,7 @@ module.exports = async (
     shares = shares.toString();
 
     const data = {
+      index,
       users,
       shares,
       name,
