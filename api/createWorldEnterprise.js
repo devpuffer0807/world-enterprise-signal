@@ -12,6 +12,7 @@ module.exports = async (
   enterprise,
   enterpriseInfo
 ) => {
+  index = parseInt(index).toString();
   var shares = [];
   try {
     try {
@@ -68,6 +69,8 @@ module.exports = async (
     console.log("CreateWorldEnterprise", data);
 
     const queryStr = queryString.stringify(data);
+
+    console.log(queryStr)
 
     await axios({
       method: "POST",
