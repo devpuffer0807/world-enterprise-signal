@@ -4,6 +4,7 @@ const { EVENT_SIGNAL_URL } = require("../config");
 const { processUser, saveUser } = require("./weUser");
 
 module.exports = async (
+  index,
   users,
   shares_,
   name,
@@ -32,7 +33,15 @@ module.exports = async (
     const ipfs = enterpriseInfo[6];
 
     for (var i = 0; i < users.length; i++) {
-      const userInfo = await processUser(users[i], shares[i], logoImg, enterpriseName, ipfs, enterprise);
+      const userInfo = await processUser(
+        index,
+        users[i],
+        shares[i],
+        logoImg,
+        enterpriseName,
+        ipfs,
+        enterprise
+      );
       console.log("======userinfo====", userInfo);
       await saveUser(users[i], userInfo);
     }

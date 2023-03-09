@@ -19,10 +19,11 @@ module.exports = async (chainId, contractAddress) => {
     enterpriseCounter = Number(enterpriseCounter);
     factoryContract.on(
       "CreateWorldEnterprise",
-      async (users, shares, name, symbol, enterprise, enterpriseInfo) => {
+      async (index, users, shares, name, symbol, enterprise, enterpriseInfo) => {
         try {
           enterpriseWorker(provider, enterprise);
           await createWorldEnterpriseAPI(
+            index,
             users,
             shares,
             name,

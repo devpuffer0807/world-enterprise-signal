@@ -2,6 +2,7 @@ const axios = require("axios");
 const { EVENT_WE_USER_URL } = require("../config");
 
 module.exports.processUser = async (
+  index,
   address,
   shareAmount,
   logoImg,
@@ -12,6 +13,7 @@ module.exports.processUser = async (
   let userInfo = {};
   let _enterpriseObj = {};
   _enterpriseObj[enterprise] = {
+    index: index,
     amount: parseFloat(shareAmount),
     ipfs: ipfs,
     logo: logoImg,
