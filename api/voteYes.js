@@ -2,16 +2,18 @@ const axios = require("axios");
 const queryString = require("querystring");
 const { EVENT_SIGNAL_URL } = require("../config");
 
-module.exports = async (account, proposalIndex) => {
+module.exports = async (address, account, proposalIndex) => {
   try {
     proposalIndex = Number(proposalIndex);
 
     const data = {
+      address,
       account,
       proposalIndex,
     };
     console.log(
       "VoteYes",
+      address,
       account,
       proposalIndex,
     );

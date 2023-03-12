@@ -47,13 +47,13 @@ module.exports = async (provider, address) => {
     );
 
     enterpriseContract.on("VoteYes", async (account, proposalIndex) => {
-      console.log("====VoteYes=====", account, proposalIndex);
-      await voteYesAPI(account, proposalIndex);
+      console.log("====VoteYes=====",address, account, proposalIndex);
+      await voteYesAPI(address, account, proposalIndex);
     });
 
     enterpriseContract.on("VoteNo", async (account, proposalIndex) => {
-      console.log("====VoteNo=====", account, proposalIndex);
-      await voteNoAPI(account, proposalIndex);
+      console.log("====VoteNo=====", address, account, proposalIndex);
+      await voteNoAPI(address, account, proposalIndex);
     });
 
     enterpriseContract.on(
