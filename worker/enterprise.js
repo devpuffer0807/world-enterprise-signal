@@ -110,7 +110,7 @@ module.exports = async (provider, address) => {
 
     enterpriseContract.on("Transfer", async (from, to, value) => {
       console.log("=====Transfer====", from, to, value);
-      await transferAPI(from, to, value);
+      await transferAPI(address, from, to, value);
     });
   } catch (e) {
     console.error("===Enterprise worker error===", e);
