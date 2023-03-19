@@ -9,6 +9,7 @@ const createBuyOrderAPI = require("../api/createBuyOrder");
 const createSellOrderAPI = require("../api/createSellOrder");
 const closeOrderAPI = require("../api/closeOrder");
 const cancelOrderAPI = require("../api/cancelOrder");
+const transferAPI = require("../api/transfer");
 
 /**
  * @dev create service worker for mumbai factory contract
@@ -105,6 +106,11 @@ module.exports = async (provider, address) => {
     enterpriseContract.on("CancelOrder", async (orderId) => {
       console.log("=====CancelOrder====", orderId);
       await cancelOrderAPI(orderId);
+    });
+
+    enterpriseContract.on("Transfer", async (from, to, value) => {
+      console.log("=====Transfer====", from, to, value);
+      await transferAPI(from, to, value);
     });
   } catch (e) {
     console.error("===Enterprise worker error===", e);
