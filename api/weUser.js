@@ -12,7 +12,7 @@ module.exports.processUser = async (
 ) => {
   let userInfo = {};
   let _enterpriseObj = {};
-  _enterpriseObj[enterprise] = {
+  _enterpriseObj[enterprise.toUpperCase()] = {
     index: index,
     amount: parseFloat(shareAmount),
     ipfs: ipfs,
