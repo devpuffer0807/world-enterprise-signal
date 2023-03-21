@@ -18,7 +18,7 @@ module.exports = async (
     try {
       for (var i = 0; i < shares_.length; i++) {
         try {
-          shares[i] = Number(shares_[i]);
+          shares[i] = shares_[i];
         } catch (e) {
           console.log(e);
         }
