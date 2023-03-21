@@ -14,7 +14,7 @@ module.exports.processUser = async (
   let _enterpriseObj = {};
   _enterpriseObj[enterprise.toUpperCase()] = {
     index: index,
-    amount: parseFloat(shareAmount),
+    amount: shareAmount,
     ipfs: ipfs,
     logo: logoImg,
     name: enterpriseName,
