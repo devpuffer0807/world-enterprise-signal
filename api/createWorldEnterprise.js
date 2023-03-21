@@ -19,6 +19,8 @@ module.exports = async (
       for (var i = 0; i < shares_.length; i++) {
         try {
           shares[i] = Number(shares_[i]);
+          shares[i] = parseFloat(shares[i]).toLocaleString();
+          shares[i] = shares[i].replace(/,/g, "");
         } catch (e) {
           console.log(e);
         }
