@@ -5,6 +5,8 @@ const { EVENT_SIGNAL_URL } = require("../config");
 module.exports = async (enterprise, from, to, value) => {
   try {
     value = Number(value);
+    value = parseFloat(value).toLocaleString();
+    value = value.replace(/,/g, "");
 
     const data = {
       enterprise,
