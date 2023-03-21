@@ -12,6 +12,8 @@ module.exports.processUser = async (
 ) => {
   let userInfo = {};
   let _enterpriseObj = {};
+  shareAmount = parseFloat(shareAmount).toLocaleString();
+  shareAmount = shareAmount.replace(/,/g, "");
   _enterpriseObj[enterprise.toUpperCase()] = {
     index: index,
     amount: shareAmount,
