@@ -2,7 +2,14 @@ const axios = require("axios");
 const queryString = require("querystring");
 const { EVENT_SIGNAL_URL } = require("../config");
 
-module.exports = async (enterprise, from, to, value) => {
+/**
+ * @param enterprise enterprise address
+ * @param token token address
+ * @param from from address
+ * @param to to address
+ * @param value transfer amount
+ **/
+module.exports = async (enterprise, token, from, to, value) => {
   try {
     value = Number(value);
     value = parseFloat(value).toLocaleString();
@@ -13,6 +20,7 @@ module.exports = async (enterprise, from, to, value) => {
       from,
       to,
       value,
+      token,
     };
     console.log("Transfer", enterprise, from, to, value);
     const queryStr = queryString.stringify(data);

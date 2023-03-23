@@ -48,7 +48,7 @@ module.exports = async (provider, address) => {
     );
 
     enterpriseContract.on("VoteYes", async (account, proposalIndex) => {
-      console.log("====VoteYes=====",address, account, proposalIndex);
+      console.log("====VoteYes=====", address, account, proposalIndex);
       await voteYesAPI(address, account, proposalIndex);
     });
 
@@ -110,7 +110,23 @@ module.exports = async (provider, address) => {
 
     enterpriseContract.on("Transfer", async (from, to, value) => {
       console.log("=====Transfer====", from, to, value);
-      await transferAPI(address, from, to, value);
+      await transferAPI(address, address, from, to, value);
+    });
+
+    enterpriseContract.on("Withdraw", async (admin, to, value) => {
+      console.log("=====Withdraw====", admin, to, value);
+      await transferAPI(
+        address,
+        ethers.constants.AddressZero,
+        admin,
+        to,
+        value
+      );
+    });
+
+    enterpriseContract.on("WithdrawToken", async (token, admin, to, value) => {
+      console.log("=====WithdrawToken====", token, admin, to, value);
+      await transferAPI(address, token, admin, to, value);
     });
   } catch (e) {
     console.error("===Enterprise worker error===", e);
