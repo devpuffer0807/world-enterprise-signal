@@ -72,7 +72,7 @@ module.exports = async (provider, address) => {
 
     enterpriseContract.on(
       "CreateBuyOrder",
-      async (address, orderIndex, owner, amount, price) => {
+      async (orderIndex, owner, amount, price) => {
         console.log(
           "====CreateBuyOrder=====",
           orderIndex,
@@ -80,7 +80,7 @@ module.exports = async (provider, address) => {
           amount,
           price
         );
-        await createBuyOrderAPI(orderIndex, owner, amount, price);
+        await createBuyOrderAPI(address, orderIndex, owner, amount, price);
       }
     );
 
@@ -94,7 +94,7 @@ module.exports = async (provider, address) => {
           amount,
           price
         );
-        await createSellOrderAPI(orderIndex, owner, amount, price);
+        await createSellOrderAPI(address, orderIndex, owner, amount, price);
       }
     );
 
