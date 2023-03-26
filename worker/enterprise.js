@@ -72,7 +72,7 @@ module.exports = async (provider, address) => {
 
     enterpriseContract.on(
       "CreateBuyOrder",
-      async (orderIndex, owner, amount, price) => {
+      async (address, orderIndex, owner, amount, price) => {
         console.log(
           "====CreateBuyOrder=====",
           orderIndex,
