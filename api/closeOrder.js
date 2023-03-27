@@ -2,12 +2,13 @@ const axios = require("axios");
 const queryString = require("querystring");
 const { EVENT_SIGNAL_URL } = require("../config");
 
-module.exports = async (orderId) => {
+module.exports = async (enterprise_address, order_id) => {
   try {
-    orderId = Number(orderId);
+    order_id = Number(order_id);
 
     const data = {
-      orderId,
+      enterprise_address,
+      order_id,
     };
     console.log("CloseOrder", orderId);
     const queryStr = queryString.stringify(data);

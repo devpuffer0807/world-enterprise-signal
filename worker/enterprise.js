@@ -100,7 +100,7 @@ module.exports = async (provider, address) => {
 
     enterpriseContract.on("CloseOrder", async (orderId) => {
       console.log("====CloseOrder=====", orderId);
-      await closeOrderAPI(orderId);
+      await closeOrderAPI(address, orderId);
     });
 
     enterpriseContract.on("CancelOrder", async (orderId) => {
