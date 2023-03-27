@@ -105,7 +105,7 @@ module.exports = async (provider, address) => {
 
     enterpriseContract.on("CancelOrder", async (orderId) => {
       console.log("=====CancelOrder====", orderId);
-      await cancelOrderAPI(orderId);
+      await cancelOrderAPI(address, orderId);
     });
 
     enterpriseContract.on("Transfer", async (from, to, value) => {
