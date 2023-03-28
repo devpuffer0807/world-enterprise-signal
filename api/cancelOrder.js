@@ -10,7 +10,7 @@ module.exports = async (enterprise_address, order_id) => {
       enterprise_address,
       order_id,
     };
-    console.log("CloseOrder", orderId);
+    console.log("CloseOrder", order_id);
     const queryStr = queryString.stringify(data);
 
     await axios({
