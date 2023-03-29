@@ -252,6 +252,12 @@
       },
       {
         "indexed": false,
+        "internalType": "string",
+        "name": "commentUrl",
+        "type": "string"
+      },
+      {
+        "indexed": false,
         "internalType": "uint256",
         "name": "startTime",
         "type": "uint256"
@@ -308,6 +314,56 @@
       }
     ],
     "name": "Transfer",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "logoImg",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "enterpriseName",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "internalType": "bool",
+            "name": "isRG",
+            "type": "bool"
+          },
+          {
+            "internalType": "enum Enterprise.CompanyType",
+            "name": "companyType",
+            "type": "uint8"
+          },
+          {
+            "internalType": "address",
+            "name": "admin",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "ipfs",
+            "type": "string"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct Enterprise.Info",
+        "name": "info",
+        "type": "tuple"
+      }
+    ],
+    "name": "UpdateInfo",
     "type": "event"
   },
   {
@@ -661,6 +717,11 @@
         "internalType": "uint256",
         "name": "price",
         "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "commentUrl",
+        "type": "string"
       }
     ],
     "name": "joinWorldEnterprise",
@@ -851,6 +912,11 @@
         "type": "uint256"
       },
       {
+        "internalType": "string",
+        "name": "commentUrl",
+        "type": "string"
+      },
+      {
         "internalType": "uint256",
         "name": "startTime",
         "type": "uint256"
@@ -974,6 +1040,56 @@
       }
     ],
     "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "logoImg",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "enterpriseName",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "internalType": "bool",
+            "name": "isRG",
+            "type": "bool"
+          },
+          {
+            "internalType": "enum Enterprise.CompanyType",
+            "name": "companyType",
+            "type": "uint8"
+          },
+          {
+            "internalType": "address",
+            "name": "admin",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "ipfs",
+            "type": "string"
+          }
+        ],
+        "internalType": "struct Enterprise.Info",
+        "name": "info_",
+        "type": "tuple"
+      }
+    ],
+    "name": "updateInfo",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
