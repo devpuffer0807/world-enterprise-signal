@@ -71,13 +71,13 @@ module.exports = async (provider, address) => {
       "ExecutePassed",
       async (proposalIndex, proposer, amount) => {
         console.log("=====ExecutePassed====", proposalIndex, proposer, amount);
-        await executePassedAPI(proposalIndex, proposer, amount);
+        await executePassedAPI(address, proposalIndex);
       }
     );
 
     enterpriseContract.on("ExecuteFailed", async (proposalIndex) => {
       console.log("====ExecuteFailed=====", proposalIndex);
-      await executeFailedAPI(proposalIndex);
+      await executeFailedAPI(address, proposalIndex);
     });
 
     enterpriseContract.on(

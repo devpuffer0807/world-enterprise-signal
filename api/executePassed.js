@@ -2,22 +2,20 @@ const axios = require("axios");
 const queryString = require("querystring");
 const { EVENT_SIGNAL_URL } = require("../config");
 
-module.exports = async (proposalIndex, proposer, amount) => {
+module.exports = async (address, proposalIndex) => {
   try {
     proposalIndex = Number(proposalIndex);
-    amount = Number(amount);
 
     const data = {
+      address,
       proposalIndex,
-      proposer,
-      amount,
     };
-    console.log("ExecutePassed", proposalIndex, proposer, amount);
+    console.log("ExecutePassed", address, proposalIndex);
     const queryStr = queryString.stringify(data);
 
     await axios({
       method: "POST",
-      url: `${EVENT_SIGNAL_URL}/assed?${queryStr}`,
+      url: `${EVENT_SIGNAL_URL}/execute-passed?${queryStr}`,
       headers: { "Content-Type": "application/json; charset=utf-8" },
     });
 

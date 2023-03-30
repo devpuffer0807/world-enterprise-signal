@@ -2,14 +2,15 @@ const axios = require("axios");
 const queryString = require("querystring");
 const { EVENT_SIGNAL_URL } = require("../config");
 
-module.exports = async (proposalIndex) => {
+module.exports = async (address, proposalIndex) => {
   try {
     proposalIndex = Number(proposalIndex);
 
     const data = {
+      address,
       proposalIndex,
     };
-    console.log("ExecuteFailed", proposalIndex);
+    console.log("ExecuteFailed", address, proposalIndex);
     const queryStr = queryString.stringify(data);
 
     await axios({
