@@ -128,7 +128,7 @@ module.exports = async (provider, address) => {
       await transferAPI(
         address,
         ethers.constants.AddressZero,
-        admin,
+        address,
         to,
         value
       );
@@ -136,7 +136,7 @@ module.exports = async (provider, address) => {
 
     enterpriseContract.on("WithdrawToken", async (token, admin, to, value) => {
       console.log("=====WithdrawToken====", token, admin, to, value);
-      await transferAPI(address, token, admin, to, value);
+      await transferAPI(address, token, address, to, value);
     });
   } catch (e) {
     console.error("===Enterprise worker error===", e);
