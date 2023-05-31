@@ -10,9 +10,9 @@
       },
       {
         "indexed": false,
-        "internalType": "address",
-        "name": "admin",
-        "type": "address"
+        "internalType": "address[]",
+        "name": "admins",
+        "type": "address[]"
       },
       {
         "indexed": false,
@@ -46,41 +46,21 @@
       },
       {
         "components": [
-          {
-            "internalType": "string",
-            "name": "logoImg",
-            "type": "string"
-          },
+          { "internalType": "string", "name": "logoImg", "type": "string" },
           {
             "internalType": "string",
             "name": "enterpriseName",
             "type": "string"
           },
-          {
-            "internalType": "string",
-            "name": "description",
-            "type": "string"
-          },
-          {
-            "internalType": "bool",
-            "name": "isRG",
-            "type": "bool"
-          },
+          { "internalType": "string", "name": "description", "type": "string" },
+          { "internalType": "bool", "name": "isRG", "type": "bool" },
           {
             "internalType": "enum Enterprise.CompanyType",
             "name": "companyType",
             "type": "uint8"
           },
-          {
-            "internalType": "address",
-            "name": "admin",
-            "type": "address"
-          },
-          {
-            "internalType": "string",
-            "name": "ipfs",
-            "type": "string"
-          }
+          { "internalType": "address", "name": "admin", "type": "address" },
+          { "internalType": "string", "name": "ipfs", "type": "string" }
         ],
         "indexed": false,
         "internalType": "struct Enterprise.Info",
@@ -168,68 +148,28 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "admin",
-        "type": "address"
-      },
-      {
-        "internalType": "address[]",
-        "name": "users",
-        "type": "address[]"
-      },
-      {
-        "internalType": "uint256[]",
-        "name": "shares",
-        "type": "uint256[]"
-      },
-      {
-        "internalType": "string",
-        "name": "tokenName",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "symbol",
-        "type": "string"
-      },
+      { "internalType": "address[]", "name": "admins", "type": "address[]" },
+      { "internalType": "address[]", "name": "users", "type": "address[]" },
+      { "internalType": "uint256[]", "name": "shares", "type": "uint256[]" },
+      { "internalType": "string", "name": "tokenName", "type": "string" },
+      { "internalType": "string", "name": "symbol", "type": "string" },
       {
         "components": [
-          {
-            "internalType": "string",
-            "name": "logoImg",
-            "type": "string"
-          },
+          { "internalType": "string", "name": "logoImg", "type": "string" },
           {
             "internalType": "string",
             "name": "enterpriseName",
             "type": "string"
           },
-          {
-            "internalType": "string",
-            "name": "description",
-            "type": "string"
-          },
-          {
-            "internalType": "bool",
-            "name": "isRG",
-            "type": "bool"
-          },
+          { "internalType": "string", "name": "description", "type": "string" },
+          { "internalType": "bool", "name": "isRG", "type": "bool" },
           {
             "internalType": "enum Enterprise.CompanyType",
             "name": "companyType",
             "type": "uint8"
           },
-          {
-            "internalType": "address",
-            "name": "admin",
-            "type": "address"
-          },
-          {
-            "internalType": "string",
-            "name": "ipfs",
-            "type": "string"
-          }
+          { "internalType": "address", "name": "admin", "type": "address" },
+          { "internalType": "string", "name": "ipfs", "type": "string" }
         ],
         "internalType": "struct Enterprise.Info",
         "name": "info",
@@ -245,44 +185,22 @@
     "inputs": [],
     "name": "index",
     "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-      }
+      { "internalType": "uint256", "name": "_value", "type": "uint256" }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
     "name": "isWorldEnterprise",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "owner",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -295,11 +213,7 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-      }
+      { "internalType": "address", "name": "newOwner", "type": "address" }
     ],
     "name": "transferOwnership",
     "outputs": [],
@@ -308,16 +222,8 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address payable",
-        "name": "to",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "value",
-        "type": "uint256"
-      }
+      { "internalType": "address payable", "name": "to", "type": "address" },
+      { "internalType": "uint256", "name": "value", "type": "uint256" }
     ],
     "name": "withdrawAdmin",
     "outputs": [],
@@ -326,21 +232,9 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "token",
-        "type": "address"
-      },
-      {
-        "internalType": "address payable",
-        "name": "to",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "value",
-        "type": "uint256"
-      }
+      { "internalType": "address", "name": "token", "type": "address" },
+      { "internalType": "address payable", "name": "to", "type": "address" },
+      { "internalType": "uint256", "name": "value", "type": "uint256" }
     ],
     "name": "withdrawAdminERC20",
     "outputs": [],
@@ -348,26 +242,11 @@
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "name": "worldEnterprises",
-    "outputs": [
-      {
-        "internalType": "contract WorldEnterprise",
-        "name": "",
-        "type": "address"
-      }
-    ],
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },
-  {
-    "stateMutability": "payable",
-    "type": "receive"
-  }
+  { "stateMutability": "payable", "type": "receive" }
 ]

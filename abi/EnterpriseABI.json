@@ -1,77 +1,5 @@
 [
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "admin",
-        "type": "address"
-      },
-      {
-        "internalType": "address[]",
-        "name": "users",
-        "type": "address[]"
-      },
-      {
-        "internalType": "uint256[]",
-        "name": "shares",
-        "type": "uint256[]"
-      },
-      {
-        "internalType": "string",
-        "name": "name_",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "symbol_",
-        "type": "string"
-      },
-      {
-        "components": [
-          {
-            "internalType": "string",
-            "name": "logoImg",
-            "type": "string"
-          },
-          {
-            "internalType": "string",
-            "name": "enterpriseName",
-            "type": "string"
-          },
-          {
-            "internalType": "string",
-            "name": "description",
-            "type": "string"
-          },
-          {
-            "internalType": "bool",
-            "name": "isRG",
-            "type": "bool"
-          },
-          {
-            "internalType": "enum Enterprise.CompanyType",
-            "name": "companyType",
-            "type": "uint8"
-          },
-          {
-            "internalType": "address",
-            "name": "admin",
-            "type": "address"
-          },
-          {
-            "internalType": "string",
-            "name": "ipfs",
-            "type": "string"
-          }
-        ],
-        "internalType": "struct Enterprise.Info",
-        "name": "info_",
-        "type": "tuple"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-  },
+  { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
   {
     "anonymous": false,
     "inputs": [
@@ -108,6 +36,19 @@
       }
     ],
     "name": "CancelOrder",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "proposalIndex",
+        "type": "uint256"
+      }
+    ],
+    "name": "CancelProposal",
     "type": "event"
   },
   {
@@ -199,6 +140,43 @@
         "internalType": "address",
         "name": "admin",
         "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "candidate",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "commentUrl",
+        "type": "string"
+      }
+    ],
+    "name": "EditProposal",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "proposalIndex",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "admin",
+        "type": "address"
       }
     ],
     "name": "ExecuteAdminAddPassed",
@@ -221,6 +199,31 @@
       }
     ],
     "name": "ExecuteAdminRemovePassed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "proposalIndex",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "admin",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "candidate",
+        "type": "address"
+      }
+    ],
+    "name": "ExecuteAdminReplacePassed",
     "type": "event"
   },
   {
@@ -259,6 +262,19 @@
       }
     ],
     "name": "ExecutePassed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "version",
+        "type": "uint8"
+      }
+    ],
+    "name": "Initialized",
     "type": "event"
   },
   {
@@ -314,19 +330,68 @@
     "anonymous": false,
     "inputs": [
       {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "proposalIndex",
+        "type": "uint256"
+      },
+      {
         "indexed": true,
         "internalType": "address",
-        "name": "previousOwner",
+        "name": "proposer",
         "type": "address"
       },
       {
         "indexed": true,
         "internalType": "address",
-        "name": "newOwner",
+        "name": "admin",
         "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "candidate",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "enum WorldEnterprise.ProposalType",
+        "name": "pType",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "startTime",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "endTime",
+        "type": "uint256"
       }
     ],
-    "name": "OwnershipTransferred",
+    "name": "ProposeAdminRequest",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "ReceiveEther",
     "type": "event"
   },
   {
@@ -395,42 +460,28 @@
     "anonymous": false,
     "inputs": [
       {
+        "indexed": true,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
         "components": [
-          {
-            "internalType": "string",
-            "name": "logoImg",
-            "type": "string"
-          },
+          { "internalType": "string", "name": "logoImg", "type": "string" },
           {
             "internalType": "string",
             "name": "enterpriseName",
             "type": "string"
           },
-          {
-            "internalType": "string",
-            "name": "description",
-            "type": "string"
-          },
-          {
-            "internalType": "bool",
-            "name": "isRG",
-            "type": "bool"
-          },
+          { "internalType": "string", "name": "description", "type": "string" },
+          { "internalType": "bool", "name": "isRG", "type": "bool" },
           {
             "internalType": "enum Enterprise.CompanyType",
             "name": "companyType",
             "type": "uint8"
           },
-          {
-            "internalType": "address",
-            "name": "admin",
-            "type": "address"
-          },
-          {
-            "internalType": "string",
-            "name": "ipfs",
-            "type": "string"
-          }
+          { "internalType": "address", "name": "admin", "type": "address" },
+          { "internalType": "string", "name": "ipfs", "type": "string" }
         ],
         "indexed": false,
         "internalType": "struct Enterprise.Info",
@@ -537,97 +588,45 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "spender",
-        "type": "address"
-      }
+      { "internalType": "address", "name": "owner", "type": "address" },
+      { "internalType": "address", "name": "spender", "type": "address" }
     ],
     "name": "allowance",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "spender",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      }
+      { "internalType": "address", "name": "spender", "type": "address" },
+      { "internalType": "uint256", "name": "amount", "type": "uint256" }
     ],
     "name": "approve",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_user",
-        "type": "address"
-      }
+      { "internalType": "address", "name": "_user", "type": "address" }
     ],
     "name": "authorized",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "account",
-        "type": "address"
-      }
+      { "internalType": "address", "name": "account", "type": "address" }
     ],
     "name": "balanceOf",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "orderId",
-        "type": "uint256"
-      }
+      { "internalType": "uint256", "name": "orderId", "type": "uint256" }
     ],
     "name": "cancelOrder",
     "outputs": [],
@@ -636,11 +635,16 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "orderId",
-        "type": "uint256"
-      }
+      { "internalType": "uint256", "name": "_proposalIndex", "type": "uint256" }
+    ],
+    "name": "cancelProposal",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "orderId", "type": "uint256" }
     ],
     "name": "closeOrder",
     "outputs": [],
@@ -649,16 +653,8 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "price",
-        "type": "uint256"
-      }
+      { "internalType": "uint256", "name": "amount", "type": "uint256" },
+      { "internalType": "uint256", "name": "price", "type": "uint256" }
     ],
     "name": "createBuyOrder",
     "outputs": [],
@@ -667,16 +663,8 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "price",
-        "type": "uint256"
-      }
+      { "internalType": "uint256", "name": "amount", "type": "uint256" },
+      { "internalType": "uint256", "name": "price", "type": "uint256" }
     ],
     "name": "createSellOrder",
     "outputs": [],
@@ -686,23 +674,13 @@
   {
     "inputs": [],
     "name": "decimals",
-    "outputs": [
-      {
-        "internalType": "uint8",
-        "name": "",
-        "type": "uint8"
-      }
-    ],
+    "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "spender",
-        "type": "address"
-      },
+      { "internalType": "address", "name": "spender", "type": "address" },
       {
         "internalType": "uint256",
         "name": "subtractedValue",
@@ -710,13 +688,7 @@
       }
     ],
     "name": "decreaseAllowance",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "nonpayable",
     "type": "function"
   },
@@ -726,7 +698,20 @@
         "internalType": "uint256",
         "name": "_proposalIndex",
         "type": "uint256"
-      }
+      },
+      { "internalType": "address", "name": "_admin", "type": "address" },
+      { "internalType": "address", "name": "_candidate", "type": "address" },
+      { "internalType": "uint256", "name": "_amount", "type": "uint256" },
+      { "internalType": "string", "name": "_commentUrl", "type": "string" }
+    ],
+    "name": "editProposal",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_proposalIndex", "type": "uint256" }
     ],
     "name": "execute",
     "outputs": [],
@@ -734,13 +719,7 @@
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "bool",
-        "name": "isAdd",
-        "type": "bool"
-      }
-    ],
+    "inputs": [{ "internalType": "bool", "name": "isAdd", "type": "bool" }],
     "name": "handleAdminRequest",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -748,25 +727,11 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "spender",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "addedValue",
-        "type": "uint256"
-      }
+      { "internalType": "address", "name": "spender", "type": "address" },
+      { "internalType": "uint256", "name": "addedValue", "type": "uint256" }
     ],
     "name": "increaseAllowance",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "nonpayable",
     "type": "function"
   },
@@ -774,62 +739,61 @@
     "inputs": [],
     "name": "info",
     "outputs": [
-      {
-        "internalType": "string",
-        "name": "logoImg",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "enterpriseName",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "description",
-        "type": "string"
-      },
-      {
-        "internalType": "bool",
-        "name": "isRG",
-        "type": "bool"
-      },
+      { "internalType": "string", "name": "logoImg", "type": "string" },
+      { "internalType": "string", "name": "enterpriseName", "type": "string" },
+      { "internalType": "string", "name": "description", "type": "string" },
+      { "internalType": "bool", "name": "isRG", "type": "bool" },
       {
         "internalType": "enum Enterprise.CompanyType",
         "name": "companyType",
         "type": "uint8"
       },
-      {
-        "internalType": "address",
-        "name": "admin",
-        "type": "address"
-      },
-      {
-        "internalType": "string",
-        "name": "ipfs",
-        "type": "string"
-      }
+      { "internalType": "address", "name": "admin", "type": "address" },
+      { "internalType": "string", "name": "ipfs", "type": "string" }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
+      { "internalType": "address[]", "name": "admins", "type": "address[]" },
+      { "internalType": "address[]", "name": "users", "type": "address[]" },
+      { "internalType": "uint256[]", "name": "shares", "type": "uint256[]" },
+      { "internalType": "string", "name": "name_", "type": "string" },
+      { "internalType": "string", "name": "symbol_", "type": "string" },
       {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "price",
-        "type": "uint256"
-      },
-      {
-        "internalType": "string",
-        "name": "commentUrl",
-        "type": "string"
+        "components": [
+          { "internalType": "string", "name": "logoImg", "type": "string" },
+          {
+            "internalType": "string",
+            "name": "enterpriseName",
+            "type": "string"
+          },
+          { "internalType": "string", "name": "description", "type": "string" },
+          { "internalType": "bool", "name": "isRG", "type": "bool" },
+          {
+            "internalType": "enum Enterprise.CompanyType",
+            "name": "companyType",
+            "type": "uint8"
+          },
+          { "internalType": "address", "name": "admin", "type": "address" },
+          { "internalType": "string", "name": "ipfs", "type": "string" }
+        ],
+        "internalType": "struct Enterprise.Info",
+        "name": "info_",
+        "type": "tuple"
       }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "amount", "type": "uint256" },
+      { "internalType": "uint256", "name": "price", "type": "uint256" },
+      { "internalType": "string", "name": "commentUrl", "type": "string" }
     ],
     "name": "joinWorldEnterprise",
     "outputs": [],
@@ -839,13 +803,7 @@
   {
     "inputs": [],
     "name": "name",
-    "outputs": [
-      {
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-      }
-    ],
+    "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -853,69 +811,29 @@
     "inputs": [],
     "name": "orderIndex",
     "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-      }
+      { "internalType": "uint256", "name": "_value", "type": "uint256" }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
+      { "internalType": "address", "name": "", "type": "address" },
+      { "internalType": "uint256", "name": "", "type": "uint256" }
     ],
     "name": "orderIndices",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "name": "orders",
     "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "price",
-        "type": "uint256"
-      },
+      { "internalType": "uint256", "name": "id", "type": "uint256" },
+      { "internalType": "address", "name": "owner", "type": "address" },
+      { "internalType": "uint256", "name": "amount", "type": "uint256" },
+      { "internalType": "uint256", "name": "price", "type": "uint256" },
       {
         "internalType": "enum WorldEnterprise.OrderType",
         "name": "orderType",
@@ -932,27 +850,8 @@
   },
   {
     "inputs": [],
-    "name": "owner",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "proposalDelayTime",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -960,89 +859,35 @@
     "inputs": [],
     "name": "proposalIndex",
     "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-      }
+      { "internalType": "uint256", "name": "_value", "type": "uint256" }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
+      { "internalType": "address", "name": "", "type": "address" },
+      { "internalType": "uint256", "name": "", "type": "uint256" }
     ],
     "name": "proposalIndices",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "name": "proposals",
     "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      },
-      {
-        "internalType": "string",
-        "name": "commentUrl",
-        "type": "string"
-      },
-      {
-        "internalType": "uint256",
-        "name": "startTime",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "endTime",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "yes",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "no",
-        "type": "uint256"
-      },
+      { "internalType": "uint256", "name": "id", "type": "uint256" },
+      { "internalType": "address", "name": "owner", "type": "address" },
+      { "internalType": "address", "name": "admin", "type": "address" },
+      { "internalType": "address", "name": "candidate", "type": "address" },
+      { "internalType": "uint256", "name": "amount", "type": "uint256" },
+      { "internalType": "string", "name": "commentUrl", "type": "string" },
+      { "internalType": "uint256", "name": "startTime", "type": "uint256" },
+      { "internalType": "uint256", "name": "endTime", "type": "uint256" },
+      { "internalType": "uint256", "name": "yes", "type": "uint256" },
+      { "internalType": "uint256", "name": "no", "type": "uint256" },
       {
         "internalType": "enum WorldEnterprise.ProposalStatus",
         "name": "status",
@@ -1058,8 +903,16 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "renounceOwnership",
+    "inputs": [
+      {
+        "internalType": "enum WorldEnterprise.ProposalType",
+        "name": "_type",
+        "type": "uint8"
+      },
+      { "internalType": "address", "name": "_admin", "type": "address" },
+      { "internalType": "address", "name": "_candidate", "type": "address" }
+    ],
+    "name": "proposeForAdminRequest",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -1067,92 +920,35 @@
   {
     "inputs": [],
     "name": "symbol",
-    "outputs": [
-      {
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-      }
-    ],
+    "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "totalSupply",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      }
+      { "internalType": "address", "name": "to", "type": "address" },
+      { "internalType": "uint256", "name": "amount", "type": "uint256" }
     ],
     "name": "transfer",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      }
+      { "internalType": "address", "name": "from", "type": "address" },
+      { "internalType": "address", "name": "to", "type": "address" },
+      { "internalType": "uint256", "name": "amount", "type": "uint256" }
     ],
     "name": "transferFrom",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-      }
-    ],
-    "name": "transferOwnership",
-    "outputs": [],
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "nonpayable",
     "type": "function"
   },
@@ -1160,41 +956,21 @@
     "inputs": [
       {
         "components": [
-          {
-            "internalType": "string",
-            "name": "logoImg",
-            "type": "string"
-          },
+          { "internalType": "string", "name": "logoImg", "type": "string" },
           {
             "internalType": "string",
             "name": "enterpriseName",
             "type": "string"
           },
-          {
-            "internalType": "string",
-            "name": "description",
-            "type": "string"
-          },
-          {
-            "internalType": "bool",
-            "name": "isRG",
-            "type": "bool"
-          },
+          { "internalType": "string", "name": "description", "type": "string" },
+          { "internalType": "bool", "name": "isRG", "type": "bool" },
           {
             "internalType": "enum Enterprise.CompanyType",
             "name": "companyType",
             "type": "uint8"
           },
-          {
-            "internalType": "address",
-            "name": "admin",
-            "type": "address"
-          },
-          {
-            "internalType": "string",
-            "name": "ipfs",
-            "type": "string"
-          }
+          { "internalType": "address", "name": "admin", "type": "address" },
+          { "internalType": "string", "name": "ipfs", "type": "string" }
         ],
         "internalType": "struct Enterprise.Info",
         "name": "info_",
@@ -1213,11 +989,7 @@
         "name": "_proposalIndex",
         "type": "uint256"
       },
-      {
-        "internalType": "bool",
-        "name": "_status",
-        "type": "bool"
-      }
+      { "internalType": "bool", "name": "_status", "type": "bool" }
     ],
     "name": "vote",
     "outputs": [],
@@ -1227,52 +999,24 @@
   {
     "inputs": [],
     "name": "voteThreshold",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
+      { "internalType": "uint256", "name": "", "type": "uint256" },
+      { "internalType": "address", "name": "", "type": "address" }
     ],
     "name": "votes",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      {
-        "internalType": "address payable",
-        "name": "to",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "value",
-        "type": "uint256"
-      }
+      { "internalType": "address payable", "name": "to", "type": "address" },
+      { "internalType": "uint256", "name": "value", "type": "uint256" }
     ],
     "name": "withdrawAdmin",
     "outputs": [],
@@ -1281,29 +1025,14 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "token",
-        "type": "address"
-      },
-      {
-        "internalType": "address payable",
-        "name": "to",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "value",
-        "type": "uint256"
-      }
+      { "internalType": "address", "name": "token", "type": "address" },
+      { "internalType": "address payable", "name": "to", "type": "address" },
+      { "internalType": "uint256", "name": "value", "type": "uint256" }
     ],
     "name": "withdrawAdminERC20",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
-  {
-    "stateMutability": "payable",
-    "type": "receive"
-  }
+  { "stateMutability": "payable", "type": "receive" }
 ]
